@@ -360,19 +360,14 @@ class DecimalValue extends DataValueObject {
 	}
 
 	/**
-	 * Constructs a new instance from the provided data. Required for @see DataValueDeserializer.
-	 * This is expected to round-trip with @see getArrayValue.
+	 * Constructs a new instance from the provided data. Round-trips with @see getArrayValue.
 	 *
-	 * @deprecated since 0.8.3. Static DataValue::newFromArray constructors like this are
-	 *  underspecified (not in the DataValue interface), and misleadingly named (should be named
-	 *  newFromArrayValue). Instead, use DataValue builder callbacks in @see DataValueDeserializer.
+	 * @deprecated since 0.8.3. Use the constructor instead, or in case of polymorphic calls,
+	 * use @see DataValueDeserializer.
 	 *
-	 * @param mixed $data Warning! Even if this is expected to be a value as returned by
-	 *  @see getArrayValue, callers of this specific newFromArray implementation can not guarantee
-	 *  this. This is not guaranteed to be a string!
+	 * param mixed $data
 	 *
-	 * @throws InvalidArgumentException if $data is not in the expected format. Subclasses of
-	 *  InvalidArgumentException are expected and properly handled by @see DataValueDeserializer.
+	 * @throws InvalidArgumentException 
 	 * @return self
 	 */
 	public static function newFromArray( $data ) {
